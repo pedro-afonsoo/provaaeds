@@ -1,1 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
+int main(void) {
+	printf("Bem vindo ao jogo Monty Hall!\nescolha uma porta entre 1,2 e 3:\n");
+		srand(time(NULL));
+		int numeroSorteado = rand() % 3+1;
+		// printf("\nA porta premiada é: %d", portaPremiada);
+			int numeroEscolhido;
+			char opcao;
+			fflush(stdout);
+			scanf("%d", &numeroEscolhido);
+			//numero alem (invalido)
+			if (numeroEscolhido == numeroSorteado) {
+				printf("Você ganhou!");
+			}
+			//opcao se perder e continuar o jogo
+			else {
+				printf("O apresentador abriu a porta, infelizmente estava vazia :(\ndeseja escolher outra porta?\nSe sim digite S, se não digite N\nEscolha:");
+				scanf(" %c", &opcao);
+			if (opcao == 'S'){
+				printf("Muito bem!\nDigite o número da nova porta a ser escolhida:\n");
+				scanf("%d", &numeroEscolhido);
+			if (numeroEscolhido == numeroSorteado) {
+				printf("Você ganhou!");
+				} else {
+					printf("O apresentador abriu a porta, infelizmente estava vazia :(\nA porta premiada foi: %d", numeroSorteado);
+				}
+			}
+			//opcao se decidir sair do jogo
+			else if (opcao == 'N'){
+					printf("fim de jogo, você perdeu!\nA porta premiada foi: %d",numeroSorteado);
+				}
+						return 0;
+			}
+}
